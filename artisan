@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# create the dotenv file if it doesn't exist
+if [ ! -f .env ]; then
+  cp .env.default .env
+fi
+
+source .env
+
+docker-compose exec lumen_php ./artisan $@
